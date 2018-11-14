@@ -16,19 +16,26 @@ public class Debugging {
 
     public static void main(String[] args) {
         Debugging instance = new Debugging();
-        System.out.println(instance.removeEvenNumbers(1, 2, 3, 4));
+        instance.removeEvenNumbers(1, 2, 3, 4));
     }
 
     Integer[] removeEvenNumbers(Integer ... values) {
         // TODO: Fix code here.
 
-        List<Integer> integers = new ArrayList<>(Arrays.asList(values));
+        List<Integer> integers = new ArrayList<Integer>(Arrays.asList(values));
 
-        for (Integer i : integers) {
-            if (i % 2 == 0) { // remove even numbers
-                integers.remove(i);
-            }
-        }
+        for(int i=0;i<integers.size();i++){
+			if(integers.get(i)%2==0){
+				integers.remove(i);
+				i--;
+			}
+		}
+        for(int i=0;i<integers.size();i++){
+			System.out.print(integers.get(i));
+			if(i!=integers.size()-1){
+				System.out.print(",");
+			}
+		}
 
         return integers.toArray(new Integer[integers.size()]);
     }
