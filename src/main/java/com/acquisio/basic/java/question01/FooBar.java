@@ -21,6 +21,16 @@ public class FooBar {
 
     String fooBar(int value) {
         // TODO: Insert your code here
-        return null;
+        if(value == 0 ){
+            return "0";
+        }else if(value%3==0 && value%5==0){
+            return String.valueOf(value);
+        }else if(value%3==0){
+            return "Foo";
+        }else if(value%5==0){
+            return "Bar";
+        }else{
+            return String.valueOf(value);
+        }
     }
 }
