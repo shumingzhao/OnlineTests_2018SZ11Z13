@@ -15,9 +15,11 @@ public class IssueResolving {
 
     int factorial(int n) {
         // TODO: Fix code here.
-        int result = 0;
-        result = factorial(n - 1) * n;
-        return result;
+        if (n <= 1){
+	            return 1;
+	    }else{
+	            return factorial(n - 1) * n;
+	    }
     }
 
 }
