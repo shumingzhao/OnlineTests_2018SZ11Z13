@@ -31,5 +31,31 @@ public class TreeNavigation {
         Node n4 = new Node("5", null, n3);
         Node n = new Node("2", n2, n4);
         // TODO: Implement code here
+        int level =1;
+        print(n, level);
+    }
+        private String printPoint(int level) {
+        String p = ".";
+        for (int i=0;i<level;i++) {
+            p += ".";
+        }
+        return p;
+    }
+    private void print(Node n, int level) {
+        if (n != null) {
+
+            System.out.println(printPoint(level)+n.name);
+            if (n.children != null) {
+               
+                if (n.children.length > 0) {
+                    print(n.children[0], level+2);
+                }
+                if (n.children.length > 1) {
+                    print(n.children[1], level+2);
+                }
+            }
+
+        }
+
     }
 }
