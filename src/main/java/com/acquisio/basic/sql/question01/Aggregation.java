@@ -50,7 +50,8 @@ public class Aggregation {
 
             // TODO: Insert query here
             // See requirement in this class javadoc
-            String query = "select 1 as dummyValue from dual";
+            //String query = "select 1 as dummyValue from dual";
+            String query = "select a.title,count(b.id) from projects a  left join employees_projects c on c.project_id = a.id left join employees b on b.id=c.employee_id group by a.id";
 
             ResultSet resultSet = conn.createStatement().executeQuery(query);
             H2DBUtil.displayResultSet(resultSet);
