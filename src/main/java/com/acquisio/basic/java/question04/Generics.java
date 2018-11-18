@@ -21,11 +21,11 @@ public class Generics {
     private void stockInventory() {
         // TODO: The following code should work with generics. No casting should be necessary.
         Inventory fruitInventory = getFruitInventory();
-        Fruit apple = (Fruit) fruitInventory.findFirst("Apple");
-        System.out.println(String.format("Apple [%s] : %d units", apple.getColor(), apple.getQuantity()));
+        Item apple =  fruitInventory.findFirst("Apple");
+        System.out.println(String.format("Apple [%s] : %d units", apple.getFeature(), apple.getQuantity()));
         Inventory vegetableInventory = getVegetableInventory();
-        Vegetable salad = (Vegetable) vegetableInventory.findFirst("Salad");
-        System.out.println(String.format("Salad [%s] : %d units", salad.getType(), salad.getQuantity()));
+        Item salad = vegetableInventory.findFirst("Salad");  
+        System.out.println(String.format("Salad [%s] : %d units", salad.getFeature(), salad.getQuantity()));
     }
 
     private Inventory getVegetableInventory() {
