@@ -4,8 +4,7 @@ class Fruit extends Item {
     private String color;
 
     Fruit(String name, String color, int quantity, double price) {
-        super(name, quantity, price);
-        this.color = color;
+        super(name, quantity, price, color);
     }
 
     public String getColor() {
