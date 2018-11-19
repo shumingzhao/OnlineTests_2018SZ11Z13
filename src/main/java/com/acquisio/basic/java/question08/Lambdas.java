@@ -34,6 +34,36 @@ public class Lambdas {
 
     void convertCarts(File input, File output) throws IOException {
         // TODO: Insert your code here.
+            	String strFile =  input.getAbsolutePath();
+    	CSVReader reader = new CSVReader(new FileReader(strFile));
+        String [] nextLine;
+        int lineNumber = 0;
+        while ((nextLine = reader.readNext()) != null) {
+            lineNumber++;
+            System.out.println("Line # " + lineNumber);
+    		int length = nextLine.length;
+    		
+    		if(lineNumber==0){
+    			for(int i = 0; i<length; i++){
+    				nextLine.add(nextLine[nextLine.length-1]);
+    				int location = nextLine.indexOf("Amount");
+    				nextLine[location+1] = ("Tax");
+    				nextLine[location+2] = ("Total");
+    			}
+    		}
+    		for(int i = 0; i<length; i++){
+				nextLine.add(nextLine[nextLine.length-1]);
+				int location = nextLine.indexOf("Amount");
+				if(nextLine[location] <50){
+					nextLine[location+1] = (nextLine[location]*0.15);
+					nextLine[location+2] = (nextLine[location]*1.15);
+				}else{
+					nextLine[location+1] = null;
+					nextLine[location+2] = null;
+				}
+
+			}
+        }
     }
 
 }
